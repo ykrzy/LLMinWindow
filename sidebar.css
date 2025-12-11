@@ -1,0 +1,241 @@
+/* sidebar.css - V2.0 (Chat Interface) */
+
+#ai-context-sidebar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-left: 1px solid #d1d5db;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 99999999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1f2937;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- HEADER (Unchanged) --- */
+#ai-context-sidebar-header {
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+#ai-context-sidebar-header h3 { margin: 0; font-size: 16px; font-weight: 600; }
+#ai-context-sidebar-close {
+  font-size: 24px; font-weight: 300; cursor: pointer; background: none;
+  border: none; padding: 0 5px; color: #9ca3af;
+}
+#ai-context-sidebar-close:hover { color: #1f2937; }
+
+/* --- BODY (Now a scrollable container) --- */
+#ai-context-sidebar-body {
+  flex-grow: 1; /* Makes it fill the space */
+  overflow-y: auto;
+  padding: 15px;
+}
+
+#ai-context-message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- MESSAGE BUBBLES --- */
+.ai-context-message-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 85%;
+  font-size: 15px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ai-context-message-bubble.model {
+  background-color: #f3f4f6; /* Light gray */
+  color: #1f2937;
+  align-self: flex-start;
+}
+
+.ai-context-message-bubble.user {
+  background-color: #007bff; /* Blue */
+  color: #ffffff;
+  align-self: flex-end;
+}
+
+/* --- FOOTER (New Input Form) --- */
+#ai-context-sidebar-footer {
+  padding: 10px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #ffffff;
+}
+
+#ai-context-chat-form {
+  display: flex;
+  align-items: flex-start; /* Aligns button with top of textarea */
+  gap: 8px;
+}
+
+#ai-context-chat-input {
+  flex-grow: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: none; /* Disables manual resize handle */
+}
+
+#ai-context-chat-send {
+  flex-shrink: 0;
+  height: 40px;
+  width: 40px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+#ai-context-chat-send:hover { background-color: #0056b3; }
+#ai-context-chat-send svg { display: block; margin: auto; }
+
+/* --- MARKDOWN STYLES (Unchanged from before) --- */
+.ai-context-message-bubble ul,
+.ai-context-message-bubble ol {
+  padding-left: 20px; margin: 10px 0;
+}
+.ai-context-message-bubble li { margin-bottom: 5px; }
+.ai-context-message-bubble p { margin-top: 0; margin-bottom: 12px; }
+.ai-context-message-bubble code {
+  background-color: #e5e7eb; padding: 2px 5px;
+  border-radius: 4px; font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+.ai-context-message-bubble pre {
+  background-color: #f3f4f6; border: 1px solid #e5e7eb;
+  padding: 10px; border-radius: 4px; overflow-x: auto; white-space: pre;
+}
+.ai-context-message-bubble pre code { background:none; padding:0; border:none; }
+.ai-context-message-bubble blockquote {
+  border-left: 4px solid #d1d5db; padding-left: 10px;
+  margin-left: 5px; color: #6b7280; font-style: italic;
+}
+.ai-context-error { color: #dc3545; font-weight: 600; }
+
+/* --- LOADER (Unchanged from before) --- */
+#ai-context-sidebar-loader {
+  display: flex; justify-content: center; align-items: center; height: 40px;
+}
+#ai-context-sidebar-loader div {
+  width: 8px; height: 8px; background-color: #9ca3af;
+  border-radius: 100%; display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both; margin: 0 2px;
+}
+#ai-context-sidebar-loader .bounce1 { animation-delay: -0.32s; }
+#ai-context-sidebar-loader .bounce2 { animation-delay: -0.16s; }
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+#ai-context-summary-btn {
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0 5px;
+  color: #9ca3af;
+  margin-right: 10px; /* Give it space from the close button */
+}
+#ai-context-summary-btn:hover {
+  color: #1f2937;
+}
+
+/* Simple 'document' icon using CSS */
+#ai-context-summary-btn::before {
+  content: '📄'; /* You can use an emoji or an SVG icon */
+  display: inline-block;
+  font-size: 20px;
+}
+/*
+ ===================================================================
+ ========================= DARK MODE STYLES ========================
+ ===================================================================
+*/
+
+#ai-context-sidebar-container.dark {
+  background-color: #1f2937; /* Dark BG */
+  border-left: 1px solid #374151; /* Darker border */
+  color: #d1d5db; /* Light text */
+}
+
+/* --- DARK HEADER --- */
+#ai-context-sidebar-container.dark #ai-context-sidebar-header {
+  border-bottom: 1px solid #374151;
+}
+#ai-context-sidebar-container.dark #ai-context-sidebar-close,
+#ai-context-sidebar-container.dark #ai-context-summary-btn {
+  color: #9ca3af;
+}
+#ai-context-sidebar-container.dark #ai-context-sidebar-close:hover,
+#ai-context-sidebar-container.dark #ai-context-summary-btn:hover {
+  color: #ffffff;
+}
+
+/* --- DARK BUBBLES --- */
+#ai-context-sidebar-container.dark .ai-context-message-bubble.model {
+  background-color: #374151; /* Dark gray */
+  color: #d1d5db; /* Light text */
+}
+
+/* User bubble can stay blue, but you could change it */
+#ai-context-sidebar-container.dark .ai-context-message-bubble.user {
+  background-color: #0069d9; /* Slightly darker blue */
+  color: #ffffff;
+}
+
+/* --- DARK FOOTER --- */
+#ai-context-sidebar-container.dark #ai-context-sidebar-footer {
+  border-top: 1px solid #374151;
+  background-color: #1f2937;
+}
+
+#ai-context-sidebar-container.dark #ai-context-chat-input {
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: #d1d5db;
+}
+#ai-context-sidebar-container.dark #ai-context-chat-input::placeholder {
+  color: #9ca3af;
+}
+
+#ai-context-sidebar-container.dark #ai-context-chat-send {
+  background-color: #0069d9;
+}
+#ai-context-sidebar-container.dark #ai-context-chat-send:hover {
+  background-color: #0056b3;
+}
+
+/* --- DARK MARKDOWN --- */
+#ai-context-sidebar-container.dark .ai-context-message-bubble code {
+  background-color: #4b5563;
+  color: #d1d5db;
+}
+#ai-context-sidebar-container.dark .ai-context-message-bubble pre {
+  background-color: #111827; /* Even darker */
+  border: 1px solid #374151;
+}
+#ai-context-sidebar-container.dark .ai-context-message-bubble blockquote {
+  border-left: 4px solid #4b5563;
+  color: #9ca3af;
+}
+
+/* --- DARK LOADER --- */
+#ai-context-sidebar-container.dark #ai-context-sidebar-loader div {
+  background-color: #6b7280;
+}

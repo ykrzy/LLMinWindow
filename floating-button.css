@@ -1,0 +1,236 @@
+/* Floating AI Button Styles */
+#ai-floating-button {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 10000;
+  display: none; /* Controlled by JS */
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: #666;
+}
+
+#ai-floating-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Staging Mode: Grey/Neutral but distinct */
+#ai-floating-button.staging-mode {
+  background: #f8f9fa;
+  border-color: #d1d5db;
+  color: #4b5563;
+}
+
+/* Ready Mode: Blue and Actionable */
+#ai-floating-button.ready-to-send {
+  background: #007bff;
+  border-color: #0056b3;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+#ai-floating-button.executing {
+  background: #007bff;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Popup Styles */
+#ai-floating-popup {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 10001;
+  min-width: 220px;
+  max-width: 300px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.prompt-list {
+  padding: 8px 0;
+}
+
+.prompt-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.prompt-item:hover {
+  background: #f8f9fa;
+}
+
+/* Staging Popup Specifics */
+.staging-popup {
+  padding: 12px;
+  width: 240px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.prompt-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.prompt-subtitle {
+  font-size: 0.8em;
+  font-weight: 400;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.position-list {
+  margin-top: 8px;
+}
+
+.position-item {
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.position-item.filled {
+  background-color: #e3fcef; 
+  border-color: #00b894; 
+  color: #2d3436;
+}
+
+.position-item.empty {
+  background-color: #f1f2f6; 
+  border-color: #dfe6e9; 
+  color: #636e72;
+}
+
+.position-item:hover {
+  filter: brightness(0.97);
+}
+
+.position-header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
+  margin-bottom: 4px;
+}
+
+.placeholder-name {
+  font-weight: 600; 
+  font-size: 0.9em;
+}
+
+.status-icon {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+.placeholder-value {
+  font-size: 0.8em; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  opacity: 0.9;
+}
+
+.reset-button {
+  margin-top: 8px; 
+  padding-top: 8px; 
+  border-top: 1px solid #eee; 
+  color: #d63031; 
+  cursor: pointer; 
+  font-size: 0.85em; 
+  display: flex; 
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.reset-button:hover {
+  background-color: #fff5f5;
+  border-radius: 4px;
+}
+
+.reset-icon {
+  font-size: 0.9em;
+}
+
+/* Slideout */
+#ai-position-slideout {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 10002;
+  min-width: 180px;
+}
+
+.slideout-header {
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  font-size: 12px;
+  color: #333;
+}
+
+.position-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #666;
+}
+
+.position-option:hover {
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  #ai-floating-button {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+
+  #ai-floating-popup, #ai-position-slideout {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .prompt-item:hover, .position-option:hover {
+    background: #4a5568;
+  }
+
+  .position-item.empty {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #a0aec0;
+  }
+  
+  .position-item.filled {
+    background-color: #2a4a5c;
+    border-color: #3182ce;
+    color: #e2e8f0;
+  }
+}

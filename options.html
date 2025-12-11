@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Context-Builder Options</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 10px 30px;
+      background-color: #f4f7f6;
+      width: 550px;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .section {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    .option {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box; /* Important */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    button.delete {
+      background-color: #dc3545;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    button.delete:hover {
+      background-color: #c82333;
+    }
+    #status {
+      margin-left: 15px;
+      color: green;
+      font-weight: 600;
+    }
+    button.edit {
+      background-color: #007bff;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    button.edite:hover {
+      background-color: #0056b3;
+    }
+    #promptList {
+      list-style-type: none;
+      padding: 0;
+    }
+    #promptList li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    #promptList li:last-child {
+      border-bottom: none;
+    }
+    #promptList li .name {
+      font-weight: 600;
+    }
+    #promptList li .template {
+      font-size: 0.9em;
+      color: #555;
+      margin-left: 15px;
+      flex-grow: 1;
+    }
+    small {
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Settings</h2>
+  <span id="status"></span>
+
+  <div class="section">
+    <h3>API Configuration</h3>
+    <div class="option">
+      <label for="apiKey">Your Gemini API Key</label>
+      <input type="password" id="apiKey">
+    </div>
+    <button id="saveApi">Save API Key</button>
+  </div>
+
+  <div class="section">
+    <h3>Prompt Library</h3>
+    <p>Manage your custom right-click menu prompts. Use <strong>{TEXT}</strong> as a placeholder for the selected text.</p>
+    
+    <ul id="promptList">
+      </ul>
+    
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+    <h4>Add a New Prompt</h4>
+    <div class="option">
+      <label for="promptName">Prompt Name</label>
+      <small>This will appear in the right-click menu (e.g., "Summarize Text")</small>
+      <input type="text" id="promptName">
+    </div>
+    <div class="option">
+      <label for="promptTemplate">Prompt Template</label>
+      <small>Use placeholders like {TEXT}, {TEXT1}, {TEXT2}, etc.</small>
+      <input type="text" id="promptTemplate">
+    </div>
+    <button id="addPrompt">Add Prompt</button>
+    <button id="cancelEdit" style="display: none; background-color: #6c757d; margin-left: 10px;">Cancel</button>
+   </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
