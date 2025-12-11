@@ -1,25 +1,9 @@
 let currentlyEditingId = null;
-// --- Milestone 4.1: The "Smarter" Prompt Library Logic ---
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('saveApi').addEventListener('click', save_api_key);
 document.getElementById('addPrompt').addEventListener('click', handle_form_submit);
 document.getElementById('cancelEdit').addEventListener('click', reset_form);
-
-// --- NEW DATA STRUCTURE ---
-// We now store a 'placeholders' array with each prompt:
-// {
-//   id: "...",
-//   name: "Summarize",
-//   template: "Summarize: {TEXT}",
-//   placeholders: ["{TEXT}"] 
-// },
-// {
-//   id: "...",
-//   name: "Explain Command/Key",
-//   template: "Command: {TEXT1}, Key: {TEXT2}",
-//   placeholders: ["{TEXT1}", "{TEXT2}"] 
-// }
 
 function save_api_key() {
   const apiKey = document.getElementById('apiKey').value;
@@ -85,10 +69,6 @@ function render_prompt_list(prompts) {
   });
 }
 
-/**
- * NEW: The main submit handler
- * Decides whether to add a new prompt or update an existing one
- */
 function handle_form_submit() {
   if (currentlyEditingId) {
     update_existing_prompt(currentlyEditingId);
@@ -97,9 +77,6 @@ function handle_form_submit() {
   }
 }
 
-/**
- * This is your OLD "add_new_prompt" function, just renamed
- */
 function save_new_prompt() {
   const name = document.getElementById('promptName').value;
   const template = document.getElementById('promptTemplate').value;
@@ -136,9 +113,6 @@ function save_new_prompt() {
   });
 }
 
-/**
- * NEW: Updates an existing prompt in storage
- */
 function update_existing_prompt(id) {
   const name = document.getElementById('promptName').value;
   const template = document.getElementById('promptTemplate').value;
