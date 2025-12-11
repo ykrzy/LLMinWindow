@@ -19,4 +19,4 @@ AI Quick Help Extension Privacy Policy:
 • YOUR CONTROL: You control what text to select, when to send it, and can clear all data by uninstalling the extension.
 
 For questions: [y.krzyw@gmail.com]
-Full privacy policy: [link-to-full-policy]
+Full privacy policy: [https://ykrzy.github.io/LLMinWindow/privacy-policy.html]
