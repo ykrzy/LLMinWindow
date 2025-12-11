@@ -1,0 +1,22 @@
+PRIVACY POLICY SUMMARY
+
+AI Quick Help Extension Privacy Policy:
+
+• DATA COLLECTION: We only process text that you manually select and choose to send to LLM services. No automatic data collection occurs.
+
+• STORAGE: All settings and preferences are stored locally on your device using Chrome's secure storage. We cannot access this data.
+
+• PERMISSIONS: 
+  - Storage: Save your preferences locally
+  - Scripting: Inject UI elements into pages
+  - Tabs: Interact with current tab
+  - All URLs: Work on any website you choose
+
+• SHARING: We do not share your data with third parties, except when you explicitly send text to your chosen LLM service.
+
+• SECURITY: All data processing happens locally in your browser. API keys and settings remain on your device.
+
+• YOUR CONTROL: You control what text to select, when to send it, and can clear all data by uninstalling the extension.
+
+For questions: [y.krzyw@gmail.com]
+Full privacy policy: [link-to-full-policy]
